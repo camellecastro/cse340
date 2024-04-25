@@ -8,35 +8,36 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2 {
-    color: #176B87;
-    font-family: 'Bebas Neue', sans-serif;
-	  font-weight: 400;
-    margin: 30px;
-    line-height: 1.5rem;
+  color: #176B87;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  margin: 30px;
+  line-height: 1.5rem;
 }
+
 h3, h4 {
-    color: #04364A;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    margin: 30px;
-    font-weight: 400;
+  color: #04364A;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 30px;
+  font-weight: 400;
 }
 p {
-    padding: 20px;
-    color: #04364A;
+  padding: 20px;
+  color: #04364A;
 }
 a {
-    color: #04364A;
-    text-decoration: none;
-    padding: 10px;
+  color: #04364A;
+  text-decoration: none;
+  padding: 10px;
 }
 main, header, footer {
-	margin: 0 auto;
+  margin: 0 auto;
   word-wrap: break-word;
 }
 
@@ -86,14 +87,14 @@ nav li {
 	padding: 1rem;
 	text-decoration: none;
   transition: 0.5s;
-   font-size: clamp(1rem, 2vmin, 1.5rem);
+ font-size: clamp(1rem, 2vmin, 1.5rem);
 }
 
 
 /* main */
 main {
-    padding: 0;
-    margin: 0 auto;
+  padding: 0;
+  margin: 0 auto;
 }
 /* Hero section */
 #hero {
