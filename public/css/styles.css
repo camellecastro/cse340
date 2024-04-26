@@ -102,12 +102,14 @@ main {
 #hero {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: auto;
   overflow: hidden;
   position: relative;
+  margin-top: 20px;
 }
 #hero h1 {
-  margin: 30px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
 }
 #hero .bg {
   z-index: -1;
@@ -120,6 +122,7 @@ main {
   color: #04364A;
   background: rgba(211, 238, 247, 0.838);
   margin-left: 15px;
+  margin-bottom: 100px;
   max-width: 200px;
   padding: 10px;
   align-items: center;
@@ -273,13 +276,13 @@ MEDIA QUERY
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 20px;
     height: 100%;
   }
   #hero h1 {
     z-index: 2;
-    margin: 30px 20px 20px 20px;
+    margin: 10px 20px 40px 20px;
     font-size: 3rem;
   }
 
@@ -292,6 +295,7 @@ MEDIA QUERY
   .hero-info {
     z-index: 2;
     margin-left: 15px;
+    margin-bottom: 140px;
   }
   .hero-info h2 {
     font-size: 2rem;
