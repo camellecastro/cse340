@@ -9,6 +9,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
 }
 
 h1, h2 {
@@ -20,10 +21,10 @@ h1, h2 {
 }
 
 h3, h4 {
+  font-family: 'Bebas Neue', sans-serif;
   color: #04364A;
   font-size: 1.5rem;
   line-height: 1.5rem;
-  font-family: 'Bebas Neue', sans-serif;
   margin: 30px;
   font-weight: 400;
 }
@@ -40,6 +41,7 @@ main, header, footer {
   margin: 0 auto;
   word-wrap: break-word;
 }
+
 
 /* header */
 #top-header {
@@ -100,7 +102,9 @@ main {
 #hero {
   display: flex;
   flex-direction: column;
-  height: 255px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
 }
 #hero h1 {
   margin: 30px 20px 20px 20px;
@@ -109,9 +113,8 @@ main {
   z-index: -1;
   position: absolute;
   width: 100%;
+  height: 100%;
   object-fit: contain;
-  overflow: hidden;
-  margin-top: 30px;
 }
 .hero-info {
   color: #04364A;
@@ -209,11 +212,17 @@ MEDIA QUERY
 ****************************************** */
 @media (min-width: 768px) {
   body {
-    background: url("/images/site/small_check.png") repeat center center/cover;
+    /* background: url("/images/site/small_check.png") repeat center center/cover; */
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, #000 25%, #fff 25%);
+    background-size: 100px 100px;
+    background-position: 0 0, 0 0, -50px -50px, 50px 50px;
   }
   #wrapper {
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 900px;
     background: #f2f9f9;
     border: #176B87 5px solid;
     border-radius: 20px;
@@ -226,7 +235,7 @@ MEDIA QUERY
   /* header */
   #top-header {
     border-radius: 20px 20px 0 0;
-    background-color: #eafffd;
+    /* background-color: #eafffd; */
     z-index: 3;
   }
   .logo {
@@ -263,8 +272,10 @@ MEDIA QUERY
   #hero {
     display: flex;
     flex-direction: column;
-    height: 50vh;
     position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 100%;
   }
   #hero h1 {
     z-index: 2;
@@ -274,8 +285,8 @@ MEDIA QUERY
 
   #hero .bg {
     z-index: 1;
-    margin-top: 0;
-    overflow: hidden;
+    margin: 0;
+    mix-blend-mode: multiply;
   }
   
   .hero-info {
