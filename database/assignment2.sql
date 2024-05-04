@@ -43,7 +43,7 @@ UPDATE inventory
 		inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles');
 
 -- --------------------------------------
--- Task Two DESTROY AND REBUILD DATABASE
+-- Task Two REBUILD DATABASE
 -- --------------------------------------
 
 CREATE TYPE public.account_type AS ENUM
