@@ -79,19 +79,21 @@ nav ul {
   padding: 0;
 	margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-nav li {
-	display: block;
-	color: #f2f9f9;
-	text-align: left;
-	padding: 1rem;
+nav ul li {
+	text-align: center;
 	text-decoration: none;
-  transition: 0.5s;
- font-size: clamp(1rem, 2vmin, 1.5rem);
 }
-
+nav ul li a{
+  display: block;
+  color: #f2f9f9;
+  padding: 1rem; 
+  transition: 0.5s;
+  font-size: clamp(1rem, 2vmin, 1.5rem);
+}
 
 /* main */
 main {
@@ -258,13 +260,11 @@ MEDIA QUERY
 
   nav ul {
     flex-direction: row;
+    justify-content: space-around;
   }
 
-  nav li {
-    padding: 1rem 3rem;
-  }
-
-  nav ul li:hover {
+  nav ul li a:hover {
+    padding: 1rem;
     color: #176B87;
     background-color: #eafffd;
     cursor: pointer;
