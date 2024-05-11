@@ -331,7 +331,7 @@ span.bolded {
 
 /* error  */
 p.error-msg {
-  height: 60vh;
+  height: 50vh;
 }
 
 
@@ -558,5 +558,10 @@ MEDIA QUERY for tablet and larger screens
   }
   span.bolded {
     font-weight: 1000;
+  }
+
+  /* error */
+  p.error-msg {
+    height: 50vh;
   }
 }
