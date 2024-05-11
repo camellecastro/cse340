@@ -1,2 +1,5 @@
-<h1>404 - File Not Found</h1>
-<%- message %>
+<!-- The Content Heading -->
+<% if (title) { %>
+<h1 class="error"><%= title %></h1>
+<% } else { res.redirect('/') } %>
+<p class="error-msg"><%- message %></p>

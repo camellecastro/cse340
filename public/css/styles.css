@@ -1,4 +1,22 @@
-/******* Change Box Model ***************/
+/******* Table of Contents ***************/
+/* ====================================
+1. Global Styles
+2. Base Element Styles
+3. Layout & Structure
+4. Header
+5. Navigation
+6. Main Content
+7. Footer
+8. Reviews & Upgrades
+9. Media Queries
+====================================== */
+/* 1. Global Styles */
+:root {
+  --main-color: #04364A;
+  --primary-color: #176B87;
+  --secondary-color: #eafffd;
+  --white-color: #f2f9f9;
+}
 *,
 *:before,
 *:after {
@@ -7,9 +25,18 @@
   padding: 0;
 }
 
+/* 2. Base Element Styles */
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
+}
+
+button {
+  background-color: var(--primary-color);
+}
+
+img {
+  max-width: 100%;
 }
 
 h1, h2 {
@@ -30,7 +57,7 @@ h3, h4 {
 }
 p {
   padding: 20px;
-  color: #04364A;
+  color: var(--main-color);
 }
 a {
   color: #04364A;
@@ -42,6 +69,9 @@ main, header, footer {
   word-wrap: break-word;
 }
 
+li {
+  color: var(--main-color);
+}
 
 /* header */
 #top-header {
@@ -64,9 +94,9 @@ main, header, footer {
   text-align: left;
 }
 
-/* navigation */
+/* 4. navigation */
 nav {
-  background-color: #04364A;
+  background-color: var(--main-color);
   color: #f2f9f9;
   margin: 0 auto;
   position: sticky;
@@ -95,6 +125,7 @@ nav ul li a{
   transition: 0.5s;
   font-size: clamp(1rem, 2vmin, 1.5rem);
 }
+
 
 /* main */
 main {
@@ -209,11 +240,104 @@ main {
   cursor: pointer;
 }
 
+footer {
+  text-align: center;
+}
+footer a {
+  padding: 0 20px 20px;
+  display: block;
+  color: var(--primary-color);
+} 
+
+/* ===================
+image containers card per model
+=====================*/
+.vehicle-title {
+  font-size: 2.3em;
+  text-align:  center;
+}
+.inv-display {
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px 20px;
+}
+
+li.vehicle-classifiction {
+  border: var(--main-color) solid 3px;
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 5px;
+  width: 100%;
+}
+li.vehicle-classifiction a {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+li.vehicle-classifiction img{
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.divider-line {
+  border-width: 2px;
+}
+.namePrice {
+  padding: 20px;
+}
+.namePrice h2 {
+  margin: 1em;
+}
+
+/* ===================
+image details per model
+=====================*/
+.detail-view h1 {
+  text-align: center;
+  font-size: 2.3em;
+  color: var(--main-color);
+}
+div.info-container {
+  padding: 30px;
+}
+div.info-container h2 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  line-height: normal;
+}
+.detail-info-list {
+  padding: 10px;
+  line-height: 2em;
+}
+.detail-info-list>li {
+  list-style: none;
+  padding: 10px;
+}
+.detail-info-list>li:nth-child(even) {
+  background: var(--white-color);
+}
+.detail-info-list .price {
+  color: var(--main-color);
+  font-size: 1.4em;
+}
+
+span.bolded {
+  font-weight: 1000;
+}
+
+/* error  */
+p.error-msg {
+  height: 60vh;
+}
 
 
 /* ***************************************************
 ******************************************
-MEDIA QUERY
+MEDIA QUERY for tablet and larger screens
 ******************************************
 ****************************************** */
 @media (min-width: 768px) {
@@ -226,11 +350,12 @@ MEDIA QUERY
     background-size: 100px 100px;
     background-position: 0 0, 0 0, -50px -50px, 50px 50px;
   }
+  /* 3. Layout and Structure */
   #wrapper {
     margin: 20px auto;
     max-width: 900px;
-    background: #f2f9f9;
-    border: #176B87 5px solid;
+    background: var(--white-color);
+    border: var(--primary-color) 5px solid;
     border-radius: 20px;
   }
   #home {
@@ -266,11 +391,10 @@ MEDIA QUERY
 
   nav ul li a:hover {
     padding: 1rem;
-    color: #176B87;
-    background-color: #eafffd;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     cursor: pointer;
   }
-
   /* main */
   /* Hero section */
   #hero {
@@ -340,7 +464,99 @@ MEDIA QUERY
   .upgrades h2 {
     margin-bottom: 10px;
   }
+  /* ===================
+  image containers card per model
+  =====================*/
+  .vehicle-title {
+    font-size: 2.5em;
+    text-align:  center;
+  }
+  .inv-display {
+    margin: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+  }
+  li.vehicle-classifiction {
+    padding: 0;
+    width: 30%;
+    height: 330px;
+    object-fit: contain;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  li.vehicle-classifiction a {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 55%;
+    overflow: hidden;
+  }
+  .image-container-card img{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .divider-line {
+    border-width: 2px;
+    
+  }
+  .namePrice {
+    padding: 0;
+    align-content: end;
+  }
+  .namePrice h2 a{
+    color: var(--primary-color);
+  }
 
-
+  /* ===================
+  vehicle details per model
+  =====================*/
+  .details-container {
+    display: flex;
+    padding: 20px;
+  }
+  .image-container {
+    width: 50%;
+  }
+  .image-container img {
+    border-radius: 10px;
+  }
+  .info-container {
+    width: 50%
+  }
+  .detail-view h1 {
+    text-align: center;
+    font-size: 3em;
+    color: var(--main-color);
+    margin-top: 1em;
+  }
+  div.info-container {
+    padding: 30px;
+  }
+  div.info-container h2 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    padding-left: 10px;
+  }
+  .detail-info-list {
+    padding: 10px;
+    line-height: 1.8em;
+  }
+  .detail-info-list>li {
+    padding: 10px;
+  }
+  .detail-info-list>li:nth-child(odd) {
+    background: var(--primary-color);
+    color: var(--white-color);
+  }
+  .detail-info-list .price {
+    color: var(--main-color);
+    font-size: 1.8em;
+  }
+  span.bolded {
+    font-weight: 1000;
+  }
 }
-
