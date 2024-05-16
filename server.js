@@ -7,20 +7,19 @@
  *************************/
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const pool = require("./database/");
 const env = require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const utilities = require("./utilities/");
-
-const session = require("express-session");
-const pool = require("./database/");
 
 const baseController = require("./controllers/baseController")
 
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute")
 const testRoute = require("./routes/testRoute")
-const accRoute = require("./routes/accountRoute")
+const accountRoute = require("./routes/accountRoute")
 
 /* ***********************
  * Middleware
@@ -36,7 +35,7 @@ const accRoute = require("./routes/accountRoute")
   name: 'sessionId',
  }))
 
- // Express Messages Middleware
+// Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
@@ -46,13 +45,13 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-
 /* ***********************
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") //not a view
+
 
 /* ***********************
  * Routes
@@ -65,7 +64,7 @@ app.use("/inv", inventoryRoute)
 // Test Route
 app.use("/trigger-error", testRoute)
 // Account Route 
-app.use("/account", accRoute)
+app.use("/account", accountRoute)
 
 /* ***********************
 * Middleware

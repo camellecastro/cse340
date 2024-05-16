@@ -7,14 +7,6 @@
 
 <!-- errors -->
 
-<% if (errors) { %>
-  <ul class="notice">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
-<% } %>
-
 <div class="form-wrapper login-wrapper">
     <!-- The Login Form Content -->
     <form id="loginForm"

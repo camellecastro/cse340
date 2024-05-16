@@ -80,12 +80,12 @@ span {
 /* form */
 input:required:invalid, input:focus:invalid {
  /* insert your own styles for invalid form input */
- border-left: 2px red;
+ border-left: 5px red solid;
 }
 
 input:required:valid {
  /* insert your own styles for valid form input */
- border-left: 2px var(--primary-color);
+ border-left: 5px var(--primary-color) solid;
 }
 
 /* header */
@@ -350,10 +350,23 @@ p.error-msg {
 }
 
 /* notice */
-ul.notice li {
-  color: red;
+#messages {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  margin: 0 auto 10px auto;
+  text-align: left;
   padding: 20px;
+  width: 50%;
 }
+.notice {
+  padding: 10px;
+  line-height: normal;
+}
+ul.notice li {
+  color: var(--main-color);
+}
+
+
 
 /* ===================
 log in form
@@ -409,7 +422,7 @@ button {
 }
 
 .password-info {
-  font-size: .8em;
+  font-size: .6em;
   color: var(--white-color);
 }
 .show-password-btn {
