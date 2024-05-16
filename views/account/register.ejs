@@ -1,0 +1,81 @@
+<% if (title) { %>
+<h1 class="form-title"><%= title %></h1>
+<% } else { res.redirect('/') } %>
+
+<!-- messages -->
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+
+<div class="form-wrapper register-wrapper" id="registerFormContainer">
+  <!-- The register Form Content -->
+  <form class="register-form login-form" id="registerForm" action="/account/register" method="post">
+    <legend class="required-message">All fields are required</legend>
+    <!-- first name -->
+    <label class="input" for="account_firstname">First Name:</label>        
+    <input
+        class="input"
+        type="text"
+        id="accountFirstname"
+        name="account_firstname"
+        placeholder="John"
+        required
+        value="<%= locals.account_firstname %>"
+    >
+    <!-- last name -->
+    <label class="input" for="account_lastname">Last Name:</label>
+    <input
+      class="input"
+      type="text"       id="accountLastname"
+      name="account_lastname"
+      placeholder="Doe"
+      required
+      value="<%= locals.account_lastname %>"
+    />
+    <!-- email -->
+    <label class="input" for="account_email">Email:</label>
+    <input
+      class="input"
+      type="email"
+      id="accountEmail"
+      name="account_email"
+      placeholder="Enter a valid email address"
+      required
+      value="<%= locals.account_email %>"
+    />
+    <!-- password -->
+    <label class="input" for="account_password">Password:</label>
+    <input
+      class="input"
+      type="password"
+      id="accountPassword"
+      name="account_password"
+      placeholder="************"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+      required
+    >
+    <!-- checkbox container for password -->
+    <div class="checkbox-container">
+      <input type="checkbox" id="showPassword" class="password-box">
+      <label for="showPassword" id="textInfoPw"
+      class="show-hide">
+        Show Password</label>
+    </div>
+    <!-- password info -->
+    <p class="password-info">
+      Passwords must be minimum of 12 characters and include 1
+      capital letter, 1 number, and 1 special character.
+    </p>
+
+    <button id="register" class="login-btn" type="submit">Register</button>
+  </form>
+</div>
+
+<script src="../../js/showPassword.js"></script>

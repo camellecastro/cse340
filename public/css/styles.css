@@ -40,7 +40,7 @@ img {
 }
 
 h1, h2 {
-  color: #176B87;
+  color: var(--primary-color);
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   margin: 30px;
@@ -49,7 +49,7 @@ h1, h2 {
 
 h3, h4 {
   font-family: 'Bebas Neue', sans-serif;
-  color: #04364A;
+  color: var(--main-color);
   font-size: 1.5rem;
   line-height: 1.5rem;
   margin: 30px;
@@ -60,7 +60,7 @@ p {
   color: var(--main-color);
 }
 a {
-  color: #04364A;
+  color: var(--primary-color);
   text-decoration: none;
   padding: 10px;
 }
@@ -71,6 +71,21 @@ main, header, footer {
 
 li {
   color: var(--main-color);
+}
+span {
+  color: var(--main-color);
+  padding: 20px;
+}
+
+/* form */
+input:required:invalid, input:focus:invalid {
+ /* insert your own styles for invalid form input */
+ border-left: 2px red;
+}
+
+input:required:valid {
+ /* insert your own styles for valid form input */
+ border-left: 2px var(--primary-color);
 }
 
 /* header */
@@ -334,6 +349,112 @@ p.error-msg {
   height: 50vh;
 }
 
+/* notice */
+ul.notice li {
+  color: red;
+  padding: 20px;
+}
+
+/* ===================
+log in form
+=====================*/
+.form-title {
+  text-align: center;
+}
+.form-wrapper {
+    background: var(--main-color);
+    color: var(--white-color);
+    padding: 10px;
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 15px;
+    max-width: 400px;
+}
+
+.login-form {
+  color: var(--white-color);
+  padding: 20px;
+}
+
+.login-form input {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  padding: 10px;
+  color: var(--main-color);
+  border: none;
+  border-radius: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+}
+
+.login-form .password-box {
+  width: 20px;
+  height: 20px;
+}
+
+.show-hide {
+  font-size: .8em;
+  padding: 5px;
+  align-content: center;
+}
+
+button {
+  padding: 5px;
+  color: var(--white-color);
+  border-radius: 5px;
+  border: none;
+}
+
+.password-info {
+  font-size: .8em;
+  color: var(--white-color);
+}
+.show-password-btn {
+  padding: 5px 10px;
+}
+.login-btn {
+  padding: 15px 40px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.login-btn:hover,
+.show-password-btn:hover {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+}
+
+.sign-up-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: var(--secondary-color);
+  font-size: .8em;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.sign-up-wrapper a {
+  text-decoration: underline;
+  color: var(--white-color);
+  padding-left: 10px;
+}
+
+.sign-up-wrapper a:hover {
+  color: var(--secondary-color);
+}
+
+/* require message */
+.required-message {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  color: var(--secondary-color);
+}
+
 
 /* ***************************************************
 ******************************************
@@ -564,4 +685,20 @@ MEDIA QUERY for tablet and larger screens
   p.error-msg {
     height: 50vh;
   }
+
+/* ===================
+log in form
+=====================*/
+.form-title {
+  font-size: 3em;
+}
+span.sign-up-wrapper {
+  color: var(--secondary-color);
+  font-size: 1em;
+}
+.login-form input {
+  font-size: 1em;
+}
+
+
 }
