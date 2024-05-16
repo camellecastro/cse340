@@ -5,7 +5,14 @@
 <!-- messages -->
 <%- messages() %>
 
-<!-- errors -->
+<!-- display error -->
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
 
 <div class="form-wrapper login-wrapper">
     <!-- The Login Form Content -->
@@ -21,7 +28,8 @@
             type="email"
             id="account_email"
             name="account_email"
-            required>
+            required
+            value="<%= locals.account_email %>">
         <br>
         <label class="input" for="account_password">Password:</label>
         <br>

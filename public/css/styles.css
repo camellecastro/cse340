@@ -350,16 +350,22 @@ p.error-msg {
 }
 
 /* notice */
-#messages {
+/* #messages {
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   margin: 0 auto 10px auto;
   text-align: left;
   padding: 20px;
   width: 50%;
-}
+} */
+
 .notice {
-  padding: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  margin: 0 auto 10px auto;
+  text-align: left;
+  padding: 20px 50px;
+  width: 50%;
   line-height: normal;
 }
 ul.notice li {
