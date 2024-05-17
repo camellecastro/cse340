@@ -54,45 +54,6 @@ const validate = {};
     ];
   }
 
-  /*  **********************************
-  *  Log in Validation Rules
-  * ********************************* */
-  validate.loginRules = () => {
-    return [
-      // valid email is required and already exist in the DB
-      body("account_email")
-        .trim()
-        // .escape()
-        // .notEmpty()
-        .isEmail()
-        .normalizeEmail() // refer to validator.js docs
-        .withMessage("A valid email is required.")
-        .custom(async (account_email) => {
-          const emailExists = await accountModel.checkExistingEmail(
-            account_email
-          );
-          if (!emailExists) {
-            throw new Error(
-              "Email does not exist. Please register."
-            );
-          }
-        }),
-
-      // password is required and must be strong password
-      body("account_password")
-        .trim()
-        // .notEmpty()
-        .isStrongPassword({
-          minLength: 12,
-          minLowercase: 1,
-          minUppercase: 1,
-          minNumbers: 1,
-          minSymbols: 1,
-        })
-        .withMessage("Invalid password."),
-    ];
-  }
-
 /* ******************************
  * Check data and return errors or continue to registration
  * ***************************** */
@@ -113,6 +74,45 @@ validate.checkRegData = async (req, res, next) => {
     return
   }
   next()
+}
+
+/*  **********************************
+*  Log in Validation Rules
+* ********************************* */
+validate.loginRules = () => {
+  return [
+    // valid email is required and already exist in the DB
+    body("account_email")
+      .trim()
+      // .escape()
+      // .notEmpty()
+      .isEmail()
+      .normalizeEmail() // refer to validator.js docs
+      .withMessage("A valid email is required.")
+      .custom(async (account_email) => {
+        const emailExists = await accountModel.checkExistingEmail(
+          account_email
+        );
+        if (!emailExists) {
+          throw new Error(
+            "Email does not exist. Please register."
+          );
+        }
+      }),
+
+    // password is required and must be strong password
+    body("account_password")
+      .trim()
+      // .notEmpty()
+      .isStrongPassword({
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+      .withMessage("Invalid password."),
+  ];
 }
 
 /* ******************************

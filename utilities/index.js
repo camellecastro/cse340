@@ -96,6 +96,50 @@ Util.buildVehicleDetails = async function (data) {
   return vehicleDetails;
 };
 
+/* **************************************
+* Build Classification List
+* ************************************ */
+
+Util.buildClassificationList = async function (classification_id = null) {
+  let data = await invModel.getClassifications();
+  let classificationList =
+    '<select name="classification_id" id="classificationList" >';
+  classificationList += "<option>Choose a Classification</option>";
+  data.rows.forEach((row) => {
+    classificationList += `<option value="${row.classification_id}"${
+      classification_id != null && row.classification_id == classification_id
+        ? " selected"
+        : ""
+    }>${row.classification_name}</option>`;
+    if (
+      classification_id != null &&
+      row.classification_id == classification_id
+    ) {
+      classificationList += " selected ";
+    }
+    classificationList += `>${row.classification_name}</option>}`;
+  });
+  classificationList += "</select>";
+  return classificationList;
+};
+
+/* **************************************
+* Build Vehicle Management View
+* ************************************ */
+Util.buildVehicleManagement = async function (data) {
+  let view = `
+  <div class="vehicle-management">
+    <p>
+    <a class="link" href="/inv/add-classification">Add New Classification</a>
+    </p>
+    <p>
+    <a class="link" href="/inv/add-inventory">Add New Inventory</a>
+    </p>
+  </div>
+  `;
+  return view;
+};
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
