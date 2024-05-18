@@ -1,0 +1,158 @@
+<% if (title) { %>
+<h1 class="vehicle-title"><%= title %></h1>
+<% } else { res.redirect('/') } %>
+
+<!-- messages -->
+<%- messages() %>
+
+<!-- Errors -->
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!-- Add Inventory Form -->
+<div class="form-wrapper">
+  <form id="AddInventoryForm" class="add-inventory-form login-form" method="POST">
+    <legend class="required-message">All fields are required</legend>
+    <!-- classification -->
+    <label class="input" for="classificationList">Classification:</label>
+    <br>
+    <%- classificationList %>
+    <br>
+    <!-- Make -->
+    <label class="input" for="inv_make">Make:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_make"
+      id="inv_make"
+      required
+      pattern="[A-Za-z0-9 ]{1,}"
+      title="Make can only contain letters, numbers, and spaces."
+      value="<%= locals.inv_make %>"
+      placeholder="Min of 3 characters">
+    <br>
+    <!-- model -->
+    <label class="input" for="inv_model">Model:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_model"
+      id="inv_model"
+      required
+      pattern="[A-Za-z0-9 ]{1,}"
+      title="Model can only contain letters, numbers, and spaces."
+      value="<%= locals.inv_model %>"
+      placeholder="Min of 3 characters">
+    <br>
+    <!-- Year -->
+    <label class="input" for="inv_year">Year:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_year"
+      id="inv_year"
+      required
+      pattern="\d{4}"
+      title="Please enter a valid year."
+      value="<%= locals.inv_year %>"
+      placeholder="4-digit year">
+    <br>
+    <!-- Description -->
+    <label class="input" for="inv_description">Description:</label>
+    <br>
+    <textarea
+      class="textarea"
+      name="inv_description"
+      id="inv_description"
+      required
+      placeholder="A detailed description of the item"
+      value="<%= locals.inv_description %>"
+    >
+    </textarea>
+    <br>
+    <!-- image -->
+    <label class="input" for="inv_image">Image:</label>
+    <br>
+    <input
+      class="input mid"
+      type="text"
+      name="inv_image"
+      id="inv_image"
+      required
+      pattern=".*\.(png|jpg|jpeg|webp)$"
+      title="Image must end with .png, .jpg, .jpeg, or .webp"
+      value="<%= locals.inv_image %>"
+      placeholder="ex. /images/vehicles/no-image.png"
+    >
+    <br>
+    <!-- thumbnail -->
+    <label class="label" for="inv_thumbnail">Thumbnail:</label>
+    <br>
+    <input
+      class="input mid"
+      type="text"
+      name="inv_thumbnail"
+      id="inv_thumbnail"
+      required
+      pattern=".*\.(png|jpg|jpeg|webp)$"
+      title="Thumbnail must end with .png, .jpg, .jpeg, or .webp"
+      value="<%= locals.inv_thumbnail %>"
+      placeholder="/images/vehicles/no-image.png"
+    >
+    <br>
+    <!-- price -->
+    <label class="label" for="inv_price">Price:</label>
+    <br>
+    <input
+      class="input bottom"
+      type="text"
+      name="inv_price"
+      id="inv_price"
+      required
+      pattern="\d+(\.\d{2})?"
+      title="Please enter a valid price."
+      value="<%= locals.inv_price %>"
+      placeholder="Decimal or Integer"
+    >
+    <br>
+    <!-- miles -->
+    <label class="label" for="inv_miles">Miles:</label>
+    <br>
+    <input
+      class="input bottom"
+      type="text"
+      name="inv_miles"
+      id="inv_miles"
+      required
+      pattern="\d+"
+      title="Miles should only contain numbers."
+      value="<%= locals.inv_miles %>"
+      placeholder="Digits only"
+    >
+    <br>
+    <!-- color -->
+    <label class="label" for="inv_color">Color:</label>
+    <br>
+    <input
+      class="input bottom"
+      type="text"
+      name="inv_color"
+      id="inv_color"
+      required
+      pattern="[A-Za-z ]{1,}"
+      title="Color can only contain letters and spaces."
+      value="<%= locals.inv_color %>"
+      placeholder="Example: Red"
+    >
+    <br>
+    <button class="login-btn add-inventory-btn" type="submit">Add Inventory Item</button>
+  </form>
+</div>
