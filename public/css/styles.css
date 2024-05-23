@@ -469,7 +469,6 @@ button {
 /* vehicle management */
 .vehicle-management {
   padding: 0 40px;
-  height: 50vh;
 }
 .vehicle-management ul{
   line-height: 1.8em;
@@ -480,6 +479,8 @@ button {
 .vehicle-management a:hover{
   color: var(--main-color);
 }
+
+
 /* require message */
 .required-message {
   font-family: 'Bebas Neue', sans-serif;

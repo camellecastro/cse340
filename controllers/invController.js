@@ -53,16 +53,17 @@ invCont.getInventoryJSONData = async (req, res, next) => {
 
 
 /* ***************************
- * Build vehicle management view
+ * Build vehicle management view/ inventory management view
  * ************************** */
 invCont.buildVehicleManagement = async function (req, res, next) {
   const nav = await utilities.getNav();
-  // const classificationSelect = await utilities.buildClassificationList();
+  const classificationSelect = await utilities.buildClassificationList();
   const managementView = await utilities.buildVehicleManagement();
   res.render("./inventory/management", {
     title: "Vehicle Management",
     nav,
     managementView,
+    classificationSelect,
     errors: null,
   });
 };
