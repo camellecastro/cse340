@@ -77,7 +77,6 @@ router.post(
  * ************************** */
 router.get(
   "/delete/:inv_id",
-  utilities.checkAccountType,
   utilities.handleErrors(invController.deleteInventoryView)
 );
 

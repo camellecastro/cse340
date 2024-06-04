@@ -137,8 +137,7 @@ async function deleteInventory(inv_id) {
     const data = await pool.query(sql, [inv_id]);
     return data
   } catch (error) {
-    console.error("Deletion error:", error);
-    return error.message;
+    new Error("Delete Inventory Error");
   }
 }
 

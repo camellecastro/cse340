@@ -19,7 +19,7 @@
 <!-- Delete Inventory Form -->
 <div class="form-wrapper">
   <form
-    id="DeleteForm"
+    id="deleteForm"
     class="delete-inventory-form login-form"
     method="POST"
     action="/inv/delete"
@@ -93,7 +93,7 @@
       Delete Vehicle
     </button>
     <!-- Add disabled attribute to the button -->
-    <input type="hidden" name="inv_id" <% if(locals.inv_id) { % /> value="<%=
+    <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%=
     locals.inv_id %>" <% } %>>
   </form>
 </div>

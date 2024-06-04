@@ -530,6 +530,10 @@ textarea.textarea {
   color: var(--main-color);
 }
 
+.warning {
+  text-align: center;
+  color: var(--main-color);
+}
 /* ***************************************************
 ******************************************
 MEDIA QUERY for tablet and larger screens
