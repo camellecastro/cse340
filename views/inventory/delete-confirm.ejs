@@ -1,0 +1,99 @@
+<% if (title) { %>
+<h1 class="vehicle-title"><%= title %></h1>
+<% } else { res.redirect('/') } %>
+
+<!-- messages -->
+<%- messages() %>
+
+<!-- Errors -->
+<% if (errors) { %>
+<ul class="notice">
+  <% errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<h2 class="warning">Confirm deletion - The deletion is permanent.</h2>
+
+<!-- Delete Inventory Form -->
+<div class="form-wrapper">
+  <form
+    id="DeleteForm"
+    class="delete-inventory-form login-form"
+    method="POST"
+    action="/inv/delete"
+  >
+    <br>
+    <!-- Make -->
+    <label class="input" for="inv_make">Make:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_make"
+      id="inv_make"
+      required
+      pattern="[A-Za-z0-9 ]{1,}"
+      title="Make can only contain letters, numbers, and spaces."
+      value="<%= locals.inv_make %>"
+      placeholder="Min of 3 characters"
+      readonly
+    >
+    <br>
+    <!-- model -->
+    <label class="input" for="inv_model">Model:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_model"
+      id="inv_model"
+      required
+      pattern="[A-Za-z0-9 ]{1,}"
+      title="Model can only contain letters, numbers, and spaces."
+      value="<%= locals.inv_model %>"
+      placeholder="Min of 3 characters"
+      readonly
+    >
+    <br>
+    <!-- Year -->
+    <label class="input" for="inv_year">Year:</label>
+    <br>
+    <input
+      class="input"
+      type="text"
+      name="inv_year"
+      id="inv_year"
+      required
+      pattern="\d{4}"
+      title="Please enter a valid year."
+      value="<%= locals.inv_year %>"
+      placeholder="4-digit year"
+      readonly
+    >
+    <br>
+    <!-- price -->
+    <label class="label" for="inv_price">Price:</label>
+    <br>
+    <input
+      class="input bottom"
+      type="text"
+      name="inv_price"
+      id="inv_price"
+      required
+      pattern="\d+(\.\d{2})?"
+      title="Please enter a valid price."
+      value="<%= locals.inv_price %>"
+      placeholder="Decimal or Integer"
+      readonly
+    >
+    <br>
+    <button class="login-btn edit-inventory-btn" type="submit">
+      Delete Vehicle
+    </button>
+    <!-- Add disabled attribute to the button -->
+    <input type="hidden" name="inv_id" <% if(locals.inv_id) { % /> value="<%=
+    locals.inv_id %>" <% } %>>
+  </form>
+</div>

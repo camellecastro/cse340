@@ -234,4 +234,39 @@ invCont.updateInventory = async function (req, res, next) {
   }
 }
 
+/* ***************************
+ *  Build Delete Confirmation View
+ * ************************** */
+invCont.deleteInventoryView = async function (req, res, next) {
+  const inv_id = parseInt(req.params.inv_id);
+  let nav = await utilities.getNav();
+  const invData = await invModel.getVehicleDetailsById(inv_id);
+  const itemName = `${invData.inv_make} ${invData.inv_model}`;
+  res.render("./inventory/delete-confirm", {
+    title: `Delete ${itemName}`,
+    nav,
+    inv_id: invData.inv_id,
+    inv_make: invData.inv_make,
+    inv_model: invData.inv_model,
+    inv_year: invData.inv_year,
+    inv_price: invData.inv_price,
+    errors: null,
+  });
+};
+
+/* ***************************
+ *  Process Delete Request
+ * ************************** */
+invCont.deleteInventory = async function (req, res, next) {
+  const inv_id = parseInt(req.params.inv_id);
+  const deleteResult = await invModel.deleteInventory(inv_id);
+  if (deleteResult) {
+    req.flash("notice", "The inventory item was successfully deleted.");
+    res.redirect("/inv");
+  } else {
+    req.flash("notice", "Sorry, the delete failed.");
+    res.redirect("/delete/" + inv_id);
+  }
+};
+
 module.exports = invCont;
