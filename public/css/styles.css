@@ -83,7 +83,6 @@ input:required:valid {
 
 /* wrapper */
  #wrapper {
-    height: 94vh;
     display: flex;
     flex-direction: column;
   }
@@ -642,7 +641,7 @@ MEDIA QUERY for tablet and larger screens
     background: var(--white-color);
     border: var(--primary-color) 5px solid;
     border-radius: 20px;
-    height: 94vh;
+    height: auto;
     display: flex;
     flex-direction: column;
   }
